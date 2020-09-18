@@ -1,14 +1,12 @@
 <h1> Create a New User </h1>
 
-<form accept-charset = 'UTF-8' action = '/users' method = 'post' data-remote = 'true'> 
-   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-
-  <label for = 'username'> Username: </label>
-  <input type = 'text' id = 'username' name = 'user[username]' > <br><br>
-  <label for = 'email'> E-mail: </label>
-  <input type = 'text' id = 'email' name = 'user[email]'  > <br><br>
-  <label for = 'password'> Password: </label>
-  <input type = 'password' id = 'password' name = 'user[password]' > <br> <br>
-  <input type = 'submit' value = "Submit">
-
-</form>
+<%# <%= form_with model: @user do |form| %> %>
+<%= form_with(url: '/users', method: 'post') do |form| %>
+  <%= label_tag('username')%>
+  <%= form.text_field :username %> <br><br>
+  <%= label_tag('email')%>
+  <%= form.text_field :email %> <br><br>
+  <%= label_tag('password')%>
+  <%= password_field_tag(:password) %> <br><br>
+  <%= form.submit "Create" %>
+<% end %>
