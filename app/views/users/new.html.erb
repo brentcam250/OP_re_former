@@ -1,12 +1,8 @@
 <h1> Create a New User </h1>
 
-<%# <%= form_with model: @user do |form| %> %>
-<%= form_with(url: '/users', method: 'post') do |form| %>
-  <%= label_tag('username')%>
-  <%= form.text_field :username %> <br><br>
-  <%= label_tag('email')%>
-  <%= form.text_field :email %> <br><br>
-  <%= label_tag('password')%>
-  <%= password_field_tag(:password) %> <br><br>
-  <%= form.submit "Create" %>
+<%= form_for(User.new) do |f| %>
+  Username: <%=f.text_field :username, placeholder: "your username here" %><br />
+  E-mail: <%=f.text_field :email, placeholder: "example@123.com"  %><br />
+  Password: <%=f.password_field :password %><br />
+  <%= f.submit %>
 <% end %>
