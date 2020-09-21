@@ -1,5 +1,7 @@
 <h1> Create a New User </h1>
 
+<p id ="notice"><%= notice %></p>
+
 <%= form_for(User.new) do |f| %>
   Username: <%=f.text_field :username, placeholder: "your username here" %><br />
   E-mail: <%=f.text_field :email, placeholder: "example@123.com"  %><br />
